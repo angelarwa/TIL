@@ -110,6 +110,8 @@ $ git log -1
 
 commit은 해시코드를 바탕으로 구분
 
+
+
 ## 원격 저장소(remote repository) 활용하기
 
 원격 저장소 기능을 제공하는 다양한 서비스 중에 github을 기준으로 설명
