@@ -1,0 +1,172 @@
+//https://kutar37.tistory.com/entry/%EC%8A%AC%EB%9D%BC%EC%9D%B4%EB%93%9C%EC%87%BC-%EA%B5%AC%ED%98%84-cssjavascriptjquery
+
+
+//HTML
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="http://placehold.it/300x100" style="width:100%">
+  <div class="text">Caption Text</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">2 / 3</div>
+  <img src="http://placehold.it/300x100" style="width:100%">
+  <div class="text">Caption Two</div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">3 / 3</div>
+  <img src="http://placehold.it/300x100" style="width:100%">
+  <div class="text">Caption Three</div>
+</div>
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot" onclick="currentSlide(1)"></span> 
+  <span class="dot" onclick="currentSlide(2)"></span> 
+  <span class="dot" onclick="currentSlide(3)"></span> 
+</div>
+
+
+
+//CSS
+HTML CSS JSResult Skip Results Iframe
+EDIT ON
+* {box-sizing: border-box}
+body {font-family: Verdana, sans-serif; margin:0}
+.mySlides {display: none}
+img {vertical-align: middle;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+
+
+
+//JS(배열을 이용해 <a>태그 혹은 <span>태그를 클릭하는 이벤트가 발생할 때마다 
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) { 
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  
+  if (n > slides.length) {slideIndex = 1}    //배열의 길이를 이용해 슬라이드쇼의 끝까지 이동하면 인덱스를 초기화해 처음으로 이동하게 하고 역순도 같은 원리
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";  //반복문으로 전체 이미지를 display:none 해서 감추고, 
+  }
+  for (i = 0; i < dots.length; i++) { 
+      dots[i].className = dots[i].className.replace(" active", ""); //replace를 통해 모든 <span>태그의 className에 active를 제거
+  }
+  slides[slideIndex-1].style.display = "block";  //해당 <img>태그에는 display:block으로 스타일을 변경해 사진이 보여지게 하고,
+  dots[slideIndex-1].className += " active"; //현재 인덱스에 해당하는 <span>에 active className을 추가하고, (CSS에 active 클래스 색지정이 되어 있다.)
+}
+
+
+
+//MOB
