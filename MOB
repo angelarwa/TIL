@@ -2,68 +2,113 @@
 
 
 //HTML
-<div class="slideshow-container">
+<h2 style="text-align:center">Slideshow Gallery</h2>
 
-<div class="mySlides fade">
-  <div class="numbertext">1 / 3</div>
-  <img src="http://placehold.it/300x100" style="width:100%">
-  <div class="text">Caption Text</div>
+<div class="container">
+  <div class="mySlides">
+    <div class="numbertext">1 / 6</div>
+    <img src="http://placehold.it/500x100" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">2 / 6</div>
+    <img src="http://placehold.it/500x100" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">3 / 6</div>
+    <img src="http://placehold.it/500x100" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">4 / 6</div>
+    <img src="http://placehold.it/500x100" style="width:100%">
+  </div>
+
+  <div class="mySlides">
+    <div class="numbertext">5 / 6</div>
+    <img src="http://placehold.it/500x100" style="width:100%">
+  </div>
+    
+  <div class="mySlides">
+    <div class="numbertext">6 / 6</div>
+    <img src="http://placehold.it/500x100" style="width:100%">
+  </div>
+    
+  <a class="prev" onclick="plusSlides(-1)">❮</a>
+  <a class="next" onclick="plusSlides(1)">❯</a>
+
+  <div class="caption-container">
+    <p id="caption"></p>
+  </div>
+
+  <div class="row">
+    <div class="column">
+      <img class="demo cursor" src="http://placehold.it/500x100" style="width:100%" onclick="currentSlide(1)" alt="The Woods">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="http://placehold.it/500x100" style="width:100%" onclick="currentSlide(2)" alt="Trolltunga, Norway">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="http://placehold.it/500x100" style="width:100%" onclick="currentSlide(3)" alt="Mountains and fjords">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="http://placehold.it/500x100" style="width:100%" onclick="currentSlide(4)" alt="Northern Lights">
+    </div>
+    <div class="column">
+      <img class="demo cursor" src="http://placehold.it/500x100" style="width:100%" onclick="currentSlide(5)" alt="Nature and sunrise">
+    </div>    
+    <div class="column">
+      <img class="demo cursor" src="http://placehold.it/500x100" style="width:100%" onclick="currentSlide(6)" alt="Snowy Mountains">
+    </div>
+  </div>
 </div>
-
-<div class="mySlides fade">
-  <div class="numbertext">2 / 3</div>
-  <img src="http://placehold.it/300x100" style="width:100%">
-  <div class="text">Caption Two</div>
-</div>
-
-<div class="mySlides fade">
-  <div class="numbertext">3 / 3</div>
-  <img src="http://placehold.it/300x100" style="width:100%">
-  <div class="text">Caption Three</div>
-</div>
-
-<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-<a class="next" onclick="plusSlides(1)">&#10095;</a>
-
-</div>
-<br>
-
-<div style="text-align:center">
-  <span class="dot" onclick="currentSlide(1)"></span> 
-  <span class="dot" onclick="currentSlide(2)"></span> 
-  <span class="dot" onclick="currentSlide(3)"></span> 
-</div>
-
 
 
 //CSS
-HTML CSS JSResult Skip Results Iframe
-EDIT ON
-* {box-sizing: border-box}
-body {font-family: Verdana, sans-serif; margin:0}
-.mySlides {display: none}
-img {vertical-align: middle;}
+body {
+  font-family: Arial;
+  margin: 0;
+}
 
-/* Slideshow container */
-.slideshow-container {
-  max-width: 1000px;
+* {
+  box-sizing: border-box;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.container {
   position: relative;
-  margin: auto;
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+/* Add a pointer when hovering over the thumbnail images */
+.cursor {
+  cursor: pointer;
 }
 
 /* Next & previous buttons */
-.prev, .next {
+.prev,
+.next {
   cursor: pointer;
   position: absolute;
-  top: 50%;
+  top: 40%;
   width: auto;
   padding: 16px;
-  margin-top: -22px;
+  margin-top: -50px;
   color: white;
   font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
+  font-size: 20px;
   border-radius: 0 3px 3px 0;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* Position the "next button" to the right */
@@ -73,19 +118,9 @@ img {vertical-align: middle;}
 }
 
 /* On hover, add a black background color with a little bit see-through */
-.prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
-}
-
-/* Caption text */
-.text {
-  color: #f2f2f2;
-  font-size: 15px;
-  padding: 8px 12px;
-  position: absolute;
-  bottom: 8px;
-  width: 100%;
-  text-align: center;
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 /* Number text (1/3 etc) */
@@ -97,43 +132,34 @@ img {vertical-align: middle;}
   top: 0;
 }
 
-/* The dots/bullets/indicators */
-.dot {
-  cursor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.6s ease;
+/* Container for image text */
+.caption-container {
+  text-align: center;
+  background-color: #222;
+  padding: 2px 16px;
+  color: white;
 }
 
-.active, .dot:hover {
-  background-color: #717171;
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+/* Six columns side by side */
+.column {
+  float: left;
+  width: 16.66%;
 }
 
-@-webkit-keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
 }
 
-@keyframes fade {
-  from {opacity: .4} 
-  to {opacity: 1}
-}
-
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .prev, .next,.text {font-size: 11px}
+.active,
+.demo:hover {
+  opacity: 1;
 }
 
 
@@ -150,21 +176,22 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-function showSlides(n) { 
+function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("mySlides");
-  var dots = document.getElementsByClassName("dot");
-  
-  if (n > slides.length) {slideIndex = 1}    //배열의 길이를 이용해 슬라이드쇼의 끝까지 이동하면 인덱스를 초기화해 처음으로 이동하게 하고 역순도 같은 원리
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1} //배열의 길이를 이용해 슬라이드쇼의 끝까지 이동하면 인덱스를 초기화해 처음으로 이동하게 하고 역순도 같은 원리
   if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";  //반복문으로 전체 이미지를 display:none 해서 감추고, 
+  for (i = 0; i < slides.length; i++) { //반복문으로 전체 이미지를 display:none 해서 감추고, 
+      slides[i].style.display = "none";
   }
-  for (i = 0; i < dots.length; i++) { 
-      dots[i].className = dots[i].className.replace(" active", ""); //replace를 통해 모든 <span>태그의 className에 active를 제거
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");  //replace를 통해 모든 <span>태그의 className에 active를 제거
   }
-  slides[slideIndex-1].style.display = "block";  //해당 <img>태그에는 display:block으로 스타일을 변경해 사진이 보여지게 하고,
-  dots[slideIndex-1].className += " active"; //현재 인덱스에 해당하는 <span>에 active className을 추가하고, (CSS에 active 클래스 색지정이 되어 있다.)
+  slides[slideIndex-1].style.display = "block"; //해당 <img>태그에는 display:block으로 스타일을 변경해 사진이 보여지게 하고,
+  dots[slideIndex-1].className += " active";  //현재 인덱스에 해당하는 <span>에 active className을 추가하고, (CSS에 active 클래스 색지정이 되어 있다.)
+  captionText.innerHTML = dots[slideIndex-1].alt;
 }
 
 
