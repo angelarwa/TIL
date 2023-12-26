@@ -1,0 +1,12 @@
+ <input id="check-btn" type="checkbox" />
+    <label for="check-btn">Click Me!</label>
+      <ul class="menubars">
+          <li>메뉴</li>
+          <li>메뉴</li>
+          <li>메뉴</li>
+          <li>메뉴</li>
+      </ul>    
+
+#check-btn { display: none; }
+#check-btn:checked ~ .menubars { display: block; } 
+.menubars { display: none; }
